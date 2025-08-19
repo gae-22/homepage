@@ -1,0 +1,175 @@
+<poml>
+	<role>
+		Always read and follow this POML before making changes. Keep outputs concise and impersonal unless asked otherwise.
+	</role>
+
+	<section label="goals">
+		<p>- Set up a simple, fast personal site with Markdown-based blog posts.</p>
+		<p>- Support tags and full-text search.</p>
+		<p>- Pick and document an optimal framework, language, and tooling.</p>
+		<p>- Establish formatter and linter settings.</p>
+		<p>- Keep PRs incremental and verify build/test/lint before completion.</p>
+	</section>
+
+	<section label="decisions">
+		<h>Framework and language</h>
+		<p>
+			Use Next.js 14+ (App Router) with TypeScript. Content: filesystem Markdown via gray-matter + react-markdown (no Contentlayer).
+			Styling: Tailwind CSS. Search: minisearch prebuilt index (client-side).
+			Deployment: Netlify-ready with @netlify/plugin-nextjs. Works locally with Node 20.
+		</p>
+		<h>Why this stack</h>
+		<p>- Next.js App Router + MDX/Markdown is a common, well-supported pattern.</p>
+		<p>- Simple filesystem parsing via gray-matter keeps deps light; types can be defined in-code.</p>
+		<p>- Client search via minisearch removes server dependency; index is generated at build.</p>
+		<p>- Tailwind accelerates UI without heavy design systems.</p>
+	</section>
+
+	<section label="design">
+		<h>Design policy</h>
+		<p>Design is simple, but the UI and overall design (coloring and layout) must be modern.</p>
+		<p>- Clean, spacious layout; mobile-first responsive grid; readable typography.</p>
+		<p>- Use Tailwind CSS for modern spacing scale, typography, radius, and subtle shadows.</p>
+		<p>- Color palette: neutral base + one accent color. Provide dark mode (prefers-color-scheme) and CSS variables for theming.</p>
+		<p>- Accessibility: WCAG AA contrast, visible focus rings, respect reduced motion.</p>
+		<p>- Components: sticky header, clear active states; card-style post list; tag chips; minimal transitions (no heavy animations).</p>
+	</section>
+
+	<section label="constraints">
+		<p>- Do not introduce heavy databases; prefer filesystem Markdown in <code>content/blog</code>.</p>
+		<p>- Blog posts are Markdown (.md or .mdx) with frontmatter fields: title, date, tags[], excerpt, draft?, slug? (optional).</p>
+		<p>- Implement tag listing pages and tag filters, and a search page using the prebuilt JSON index.</p>
+		<p>- Keep Japanese and English compatible: allow Unicode slugs but also provide a separate slug field for URL safety.</p>
+		<p>- All commands must be zsh-compatible on macOS.</p>
+	</section>
+
+	<section label="directories">
+		<code>
+		/content/blog/            # Markdown posts (YYYY-MM-DD-title.md)
+		/public/                  # Static assets
+		/src/app/                 # Next.js App Router
+			├─ (site)/             # Layouts and routes
+			├─ blog/               # Blog index and routes
+			├─ tags/               # Tag index and tag pages
+			└─ search/             # Search UI
+		/src/components/         # UI components
+		/src/lib/                # utils (content, search)
+		</code>
+	</section>
+
+	<section label="formatters-and-linters">
+		<p>- Prettier for formatting (with Tailwind plugin).</p>
+		<p>- ESLint with <code>next/core-web-vitals</code> and TypeScript rules.</p>
+		<p>- EditorConfig for basic whitespace consistency.</p>
+	</section>
+
+	<section label="commit-messages">
+		<h>Commit message conventions</h>
+		<p>Use a modern, consistent style combining emoji + Conventional Commits. Keep subjects short and imperative; add detail in the body.</p>
+		<code>
+Format:
+	emoji + &lt;type&gt;(&lt;scope&gt;)&lt;!&gt;: &lt;subject&gt;
+
+Rules:
+	- Subject: imperative mood, ≤ 72 chars, no trailing period.
+	- Scope: optional, lower-kebab-case (e.g., blog, tags, search, layout, components, lib, scripts, config, ci).
+	- Use ! for breaking changes and add a BREAKING CHANGE: footer.
+	- Body: why and what changed; wrap at ~72 chars.
+	- Footer: references (e.g., Closes #123), co-authors, BREAKING CHANGE.
+
+Types + emoji:
+	✨ feat     – new feature
+	🐛 fix      – bug fix
+	📝 docs     – docs only changes
+	🎨 style    – formatting/ui changes (no logic)
+	♻️ refactor – code change that neither fixes a bug nor adds a feature
+	⚡️ perf     – performance improvements
+	✅ test     – add/update tests
+	🏗️ build    – build system or dependencies
+	🤖 ci       – CI configuration
+	🧹 chore    – maintenance tasks
+	⏪ revert   – revert previous commit
+
+Examples:
+	✨ feat(blog): All Posts にインライン検索フィルタを追加
+	🐛 fix(tags): 空のタグ一覧でもクラッシュしないように修正
+	🎨 style(layout): 余白を調整しコントラストを改善
+	♻️ refactor(lib): Markdown ローダーと型を簡素化
+	🏗️ build: TypeScript を 5.6.x に固定
+	🤖 ci: Netlify 用に .next のビルドキャッシュを追加
+
+PR タイトル: 主なコミットと同じ形式で記述。
+Language: コミットメッセージは日本語で記述する（簡潔な表現を心がける）。
+		</code>
+	</section>
+
+	<task id="bootstrap-project">
+		Initialize a Next.js (App Router) + TypeScript project with Tailwind CSS.
+		Use filesystem Markdown with gray-matter + react-markdown. Add minisearch for client-side search and build a JSON index at build time.
+		Provide minimal pages: Home, Blog index, Post page, Tags index, Tag page, Search page.
+		Add sample posts with tags to demonstrate functionality.
+	</task>
+
+	<task id="content-model">
+		Define TypeScript types for posts and parse /content/blog/**/*.md with frontmatter:
+		{ title: string, date: date, tags: string[], excerpt?: string, draft?: boolean, slug?: string }
+		Generate a search index at build time with fields: title, excerpt, body, tags, url.
+	</task>
+
+	<task id="search-impl">
+		Use minisearch to load a prebuilt JSON index (placed under /public/search-index.json).
+		Implement a search page with an input box, instant results, and tag chips.
+	</task>
+
+	<task id="tags-impl">
+		Provide /tags to list all tags with counts; clicking a tag shows /tags/[tag] with filtered posts.
+	</task>
+
+	<task id="tooling">
+		Add and configure ESLint, Prettier (with Tailwind plugin), EditorConfig, TypeScript strict options.
+		Add npm scripts: dev, build, start, lint, format, typecheck, search:build.
+		Ensure pre-commit formatting with optional lint-staged + simple Git hook (if user opts in).
+	</task>
+
+	<task id="ui-setup">
+		Configure Tailwind theme tokens (colors, font, spacing, radius, container).
+		Enable dark mode support and motion-safe transitions.
+		Implement base layout, header/footer, typography styles, and minimal components: Card, Tag, SearchInput.
+	</task>
+
+	<task id="docs">
+		Create a concise README.md at repo root: how to run locally, write a post, add a tag, rebuild search, deploy.
+	</task>
+
+	<output-format>
+		Keep messages short and skimmable. When editing files, use the workspace edit tool and avoid printing diffs in chat.
+		After 3–5 edits, summarize changes and the next step. Provide commands only if asked or when necessary, one per line.
+	</output-format>
+
+		<example label="blog-frontmatter">
+	---
+	title: "はじめての投稿"
+	date: 2025-08-19
+	tags: ["diary", "intro"]
+	excerpt: "ブログの最初の投稿です。"
+	draft: false
+	slug: "first-post"
+	---
+
+	ここに本文を書きます。Markdown が使えます。
+		</example>
+
+		<example label="eslint-config">
+	{
+		"extends": ["next/core-web-vitals", "eslint:recommended", "plugin:@typescript-eslint/recommended"],
+		"parser": "@typescript-eslint/parser",
+		"plugins": ["@typescript-eslint"],
+		"rules": { "@typescript-eslint/explicit-function-return-type": "off" }
+	}
+		</example>
+
+		<section label="notes">
+			<p>Prefer minimal dependencies. If MDX is desired later, add an MDX parser/renderer or next-mdx-remote.</p>
+			<p>Use ISO date in frontmatter. Draft posts must be excluded from production build.</p>
+		</section>
+</poml>
