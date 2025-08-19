@@ -34,8 +34,8 @@ export default function RootLayout({
         {/* Decorative fixed background layers */}
         <div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
           <div className="bg-grid absolute inset-0" />
-          <div className="aurora animate-aurora absolute -left-40 -top-20 h-[50vmax] w-[50vmax] bg-gradient-to-br from-primary/35 via-secondary/25 to-primary/20" />
-          <div className="aurora animate-aurora absolute -right-40 -top-10 h-[40vmax] w-[40vmax] bg-gradient-to-tr from-secondary/35 via-primary/25 to-secondary/20" />
+          <div className="aurora absolute -left-40 -top-20 h-[50vmax] w-[50vmax] animate-aurora bg-gradient-to-br from-primary/35 via-secondary/25 to-primary/20" />
+          <div className="aurora absolute -right-40 -top-10 h-[40vmax] w-[40vmax] animate-aurora bg-gradient-to-tr from-secondary/35 via-primary/25 to-secondary/20" />
         </div>
 
         <Container>

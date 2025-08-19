@@ -12,7 +12,7 @@ export default function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 py-2">
-      <nav className="shadow-soft flex items-center justify-between rounded-2xl border border-slate-200/60 bg-white/70 px-3 py-2.5 ring-1 ring-black/5 backdrop-blur dark:border-slate-700/50 dark:bg-slate-900/60">
+      <nav className="flex items-center justify-between rounded-2xl border border-slate-200/60 bg-white/70 px-3 py-2.5 shadow-soft ring-1 ring-black/5 backdrop-blur dark:border-slate-700/50 dark:bg-slate-900/60">
         <Link
           href="/"
           className="group flex items-center gap-2.5 text-base font-semibold tracking-tight md:text-lg"
@@ -71,42 +71,6 @@ export default function SiteHeader() {
               aria-hidden
               className={`absolute inset-x-2 bottom-1 h-0.5 origin-left scale-x-0 rounded bg-gradient-to-r from-primary to-secondary transition-transform ${
                 isActive('/blog') ? 'scale-x-100' : 'group-hover:scale-x-100'
-              }`}
-            />
-          </Link>
-          <Link
-            href="/search"
-            aria-current={isActive('/search') ? 'page' : undefined}
-            className={`relative flex items-center gap-1.5 rounded-md px-2.5 py-1.5 transition ${
-              isActive('/search')
-                ? 'bg-slate-100/80 text-primary dark:bg-slate-800/60'
-                : 'text-slate-600 hover:bg-slate-100/80 hover:text-primary dark:text-slate-300 dark:hover:bg-slate-800/60'
-            }`}
-          >
-            <span
-              aria-hidden
-              className="inline-flex h-5 w-5 items-center justify-center"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                className="h-5 w-5"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.7"
-                  d="M11 5a6 6 0 104.472 10.058L20 19.586 18.586 21l-4.528-4.528A6 6 0 0011 5z"
-                />
-              </svg>
-            </span>
-            <span className="font-medium">Search</span>
-            <span
-              aria-hidden
-              className={`absolute inset-x-2 bottom-1 h-0.5 origin-left scale-x-0 rounded bg-gradient-to-r from-primary to-secondary transition-transform ${
-                isActive('/search') ? 'scale-x-100' : 'group-hover:scale-x-100'
               }`}
             />
           </Link>

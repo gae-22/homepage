@@ -5,12 +5,12 @@ import type { PostMeta } from '@/lib/posts';
 
 export default function PostCard({ post }: { post: PostMeta }) {
   return (
-    <article className="shadow-soft hover:shadow-soft-lg group relative overflow-hidden rounded-2xl border border-slate-200/60 bg-white/70 p-4 ring-1 ring-black/5 backdrop-blur transition focus-within:ring-2 focus-within:ring-primary/40 hover:-translate-y-0.5 dark:border-slate-700/50 dark:bg-slate-900/60">
+    <article className="group relative overflow-hidden rounded-2xl border border-slate-200/60 bg-white/70 p-4 shadow-soft ring-1 ring-black/5 backdrop-blur transition focus-within:ring-2 focus-within:ring-primary/40 hover:-translate-y-0.5 hover:shadow-soft-lg dark:border-slate-700/50 dark:bg-slate-900/60">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-primary/30 via-secondary/30 to-primary/30" />
       {/* Stretched link to make the whole card clickable */}
       <Link
         href={post.url}
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-20"
         aria-label={post.title}
       />
       <div className="relative z-10 flex items-start justify-between gap-4">

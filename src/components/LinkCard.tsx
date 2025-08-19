@@ -47,7 +47,7 @@ export default async function LinkCard({ url }: Props) {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="not-prose mt-6 block overflow-hidden rounded-xl border border-slate-200/70 transition hover:shadow-md dark:border-slate-700/60"
+      className="not-prose mt-6 block overflow-hidden rounded-xl border border-slate-200/70 shadow-soft transition-transform duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-soft-lg hover:brightness-[1.02] dark:border-slate-700/60 dark:hover:border-secondary/40"
     >
       <div className="flex items-stretch">
         {og.image ? (

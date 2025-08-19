@@ -9,7 +9,7 @@ slug: 'first-post'
 
 # ああああああああああああ
 
-```main.py
+```python:main.py
 x = 2
 print("x = 3")
 ```
