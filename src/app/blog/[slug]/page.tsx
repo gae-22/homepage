@@ -2,6 +2,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import CodeBlock from '@/components/CodeBlock';
+import LinkCard from '@/components/LinkCard';
+import React from 'react';
 import { notFound } from 'next/navigation';
 import { formatDate } from '@/lib/date';
 import Tag from '@/components/Tag';
@@ -78,7 +82,80 @@ export default function PostPage({ params }: { params: { slug: string } }) {
             ))}
           </div>
           <div className="mt-8">
-            <ReactMarkdown>{content}</ReactMarkdown>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                // Code blocks with syntax highlight, filename label, copy button
+                code(props) {
+                  return <CodeBlock {...props} />;
+                },
+                // Remove default <pre> wrapper to avoid double frames
+                pre({ children }) {
+                  return <>{children}</>;
+                },
+                // Convert a paragraph that contains only a URL (either plain text or a single anchor) into a LinkCard
+                p({ children, ...pProps }) {
+                  const kids = React.Children.toArray(children);
+
+                  function textFrom(node: React.ReactNode): string {
+                    if (node == null) return '';
+                    if (typeof node === 'string') return node;
+                    if (Array.isArray(node)) return node.map(textFrom).join('');
+                    if (React.isValidElement(node)) {
+                      return textFrom(node.props?.children);
+                    }
+                    return '';
+                  }
+
+                  function toAbsoluteHttpUrl(
+                    href?: string
+                  ): string | undefined {
+                    if (!href) return undefined;
+                    try {
+                      const u = new URL(href);
+                      return u.protocol === 'http:' || u.protocol === 'https:'
+                        ? href
+                        : undefined;
+                    } catch {
+                      return undefined;
+                    }
+                  }
+
+                  // Ignore purely whitespace nodes
+                  const nonWs = kids.filter((k) => textFrom(k).trim() !== '');
+
+                  // Case 1: a single plain-text URL
+                  if (nonWs.length === 1 && typeof nonWs[0] === 'string') {
+                    const s = (nonWs[0] as string).trim();
+                    const abs = toAbsoluteHttpUrl(s);
+                    if (abs) return <LinkCard url={abs} />;
+                  }
+
+                  // Case 2: a single anchor whose text equals its href
+                  if (
+                    nonWs.length === 1 &&
+                    React.isValidElement(nonWs[0]) &&
+                    typeof (nonWs[0] as any).type === 'string' &&
+                    (nonWs[0] as any).type === 'a'
+                  ) {
+                    const aEl = nonWs[0] as React.ReactElement<{
+                      href?: string;
+                      children?: React.ReactNode;
+                    }>;
+                    const href = aEl.props.href;
+                    const text = textFrom(aEl.props.children).trim();
+                    const abs = toAbsoluteHttpUrl(href);
+                    if (abs && href && text === href.trim()) {
+                      return <LinkCard url={abs} />;
+                    }
+                  }
+
+                  return <p {...pProps}>{children}</p>;
+                },
+              }}
+            >
+              {content}
+            </ReactMarkdown>
           </div>
         </article>
       );

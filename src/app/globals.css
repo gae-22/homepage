@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prism theme for code blocks */
+@import url('https://cdn.jsdelivr.net/npm/prism-themes/themes/prism-vsc-dark-plus.min.css');
+
 :root {
   --bg: 255 255 255;
   --fg: 17 24 39;

@@ -7,4 +7,13 @@ draft: false
 slug: 'first-post'
 ---
 
-ここに本文を書きます。Markdown が使えます。検索やタグのテスト用のテキストも含めます。
+# ああああああああああああ
+
+```main.py
+x = 2
+print("x = 3")
+```
+
+## あああああああああああああ
+
+https://github.com/gae-22
