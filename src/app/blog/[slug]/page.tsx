@@ -71,7 +71,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
       fm.slug || file.replace(/\.md$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, '');
     if (slug === params.slug) {
       return (
-        <article className="shadow-soft prose prose-slate w-full max-w-none rounded-2xl border border-slate-200/60 bg-white/85 p-6 ring-1 ring-black/5 backdrop-blur-md dark:prose-invert dark:border-slate-700/50 dark:bg-slate-900/70 sm:p-8">
+        <article className="prose prose-slate w-full max-w-none rounded-2xl border border-slate-200/60 bg-white/85 p-6 shadow-soft ring-1 ring-black/5 backdrop-blur-md dark:prose-invert dark:border-slate-700/50 dark:bg-slate-900/70 sm:p-8">
           <h1>{fm.title}</h1>
           <p className="mt-0 text-sm text-slate-600 dark:text-slate-300">
             {formatDate(fm.date)}
@@ -135,8 +135,8 @@ export default function PostPage({ params }: { params: { slug: string } }) {
                   if (
                     nonWs.length === 1 &&
                     React.isValidElement(nonWs[0]) &&
-                    typeof (nonWs[0] as any).type === 'string' &&
-                    (nonWs[0] as any).type === 'a'
+                    typeof (nonWs[0] as React.ReactElement).type === 'string' &&
+                    (nonWs[0] as React.ReactElement).type === 'a'
                   ) {
                     const aEl = nonWs[0] as React.ReactElement<{
                       href?: string;
