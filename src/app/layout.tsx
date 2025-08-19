@@ -3,6 +3,7 @@ import './globals.css';
 import Container from '@/components/layout/Container';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: 'Homepage',
@@ -22,6 +23,7 @@ export default function RootLayout({
           <main className="py-10">{children}</main>
           <SiteFooter />
         </Container>
+        <Analytics />
       </body>
     </html>
   );

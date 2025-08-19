@@ -16,6 +16,7 @@
     "node": "22.x"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "date-fns": "^3.6.0",
     "gray-matter": "^4.0.3",
     "minisearch": "^7.1.0",
