@@ -53,17 +53,17 @@ export default function SearchBox() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search posts..."
-        className="ring-primary/30 w-full rounded-md border border-slate-300 bg-white px-3 py-2 shadow-inner outline-none focus:ring dark:border-slate-700 dark:bg-slate-800"
+        className="input"
       />
       <ul className="space-y-4">
         {results.map((r) => (
           <li
             key={r.id}
-            className="rounded-xl border border-slate-200/70 bg-white/70 p-4 shadow-sm backdrop-blur-sm dark:border-slate-800/80 dark:bg-slate-900/60"
+            className="card hover:shadow-soft-lg transition-shadow"
           >
             <Link
               href={r.url}
-              className="hover:text-primary text-lg font-semibold"
+              className="text-lg font-semibold tracking-tight hover:text-primary"
             >
               {r.title}
             </Link>

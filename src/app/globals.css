@@ -29,15 +29,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background:
     radial-gradient(
-      1200px 600px at 10% -10%,
-      rgba(var(--brand-1), 0.06),
+      900px 500px at 10% -10%,
+      rgba(var(--brand-1), 0.07),
       transparent
     ),
     radial-gradient(
-      1200px 600px at 90% -10%,
-      rgba(var(--brand-2), 0.05),
+      900px 500px at 90% -10%,
+      rgba(var(--brand-2), 0.06),
       transparent
     ),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0)),
     rgb(var(--bg));
   color: rgb(var(--fg));
 }
@@ -53,12 +54,20 @@ body {
 /* Smooth focus ring */
 :where(a, button, input, textarea, select):focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(var(--brand-1), 0.35);
+  box-shadow: 0 0 0 3px rgba(var(--brand-1), 0.28);
   border-color: color-mix(
     in oklab,
     rgb(var(--fg)) 80%,
     rgba(var(--brand-1), 1) 20%
   );
+}
+
+/* Headings subtle tracking */
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.01em;
 }
 
 /* (Card helper removed; inline utility classes are used to avoid @apply) */
@@ -82,4 +91,27 @@ html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   width: 0 !important;
   height: 0 !important;
+}
+
+/* Reusable component classes for cohesive UI */
+@layer components {
+  .card {
+    @apply shadow-soft relative overflow-hidden rounded-2xl border border-slate-200/60 bg-white/70 p-4 ring-1 ring-black/5 backdrop-blur-sm dark:border-slate-700/50 dark:bg-slate-900/60;
+  }
+  .card-header-line::before {
+    content: '';
+    @apply pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-primary/30 via-secondary/30 to-primary/30;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-3 py-2 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40;
+  }
+  .btn-primary {
+    @apply btn shadow-soft bg-primary text-white hover:brightness-110;
+  }
+  .btn-ghost {
+    @apply btn border border-slate-300 bg-white/80 text-slate-800 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:bg-slate-800;
+  }
+  .input {
+    @apply w-full rounded-lg border border-slate-300 bg-white/80 px-3 py-2 shadow-inner outline-none ring-primary/30 focus:ring dark:border-slate-700 dark:bg-slate-800/70;
+  }
 }

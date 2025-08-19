@@ -5,9 +5,9 @@ import type { PostMeta } from '@/lib/posts';
 
 export default function PostCard({ post }: { post: PostMeta }) {
   return (
-    <article className="rounded-xl border border-slate-200/70 bg-white/70 p-4 shadow-sm backdrop-blur-sm transition hover:shadow-md dark:border-slate-800/80 dark:bg-slate-900/60">
+    <article className="card card-header-line hover:shadow-soft-lg transition-shadow">
       <div className="flex items-center justify-between gap-4">
-        <h3 className="text-xl font-semibold">
+        <h3 className="text-xl font-semibold tracking-tight">
           <Link href={post.url} className="hover:text-primary">
             {post.title}
           </Link>
@@ -22,7 +22,7 @@ export default function PostCard({ post }: { post: PostMeta }) {
         </p>
       )}
       {post.tags && (
-        <div className="mt-2 flex flex-wrap gap-2">
+        <div className="mt-3 flex flex-wrap gap-2">
           {post.tags.map((t) => (
             <Tag key={t} tag={t} />
           ))}

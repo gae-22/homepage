@@ -34,17 +34,17 @@ export default function BlogFilter({
   return (
     <div className="space-y-8">
       <section id="search" className="space-y-3">
-        <h2 className="text-2xl font-semibold">Search</h2>
+        <h2 className="text-2xl font-semibold tracking-tight">Search</h2>
         <input
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search posts..."
-          className="ring-primary/30 w-full rounded-md border border-slate-300 bg-white px-3 py-2 shadow-inner outline-none focus:ring dark:border-slate-700 dark:bg-slate-800"
+          className="input"
         />
       </section>
 
       <section id="tags" className="space-y-3">
-        <h2 className="text-2xl font-semibold">Tags</h2>
+        <h2 className="text-2xl font-semibold tracking-tight">Tags</h2>
         <div className="flex flex-wrap gap-2">
           <Tag
             tag="All"

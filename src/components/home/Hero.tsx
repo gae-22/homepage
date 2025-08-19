@@ -15,11 +15,8 @@ export default function Hero({
   const links = intro?.links || [];
 
   return (
-    <section className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white/70 p-6 shadow-sm backdrop-blur-sm dark:border-slate-800/80 dark:bg-slate-900/60">
-      <div
-        className="pointer-events-none absolute inset-x-0 -top-0.5 h-px bg-gradient-to-r from-primary/40 via-secondary/40 to-primary/40"
-        aria-hidden
-      />
+    <section className="card p-6">
+      <div className="card-header-line" aria-hidden />
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div className="max-w-2xl">
           <h1 className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-3xl font-extrabold leading-tight text-transparent">
@@ -47,26 +44,16 @@ export default function Hero({
             </ul>
           ) : null}
           <div className="mt-4 flex flex-wrap gap-2">
-            <Link
-              href="/blog"
-              className="inline-flex items-center justify-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm transition hover:brightness-110"
-            >
+            <Link href="/blog" className="btn-primary">
               ブログを見る
             </Link>
             {latestPostUrl ? (
-              <Link
-                href={latestPostUrl}
-                className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800"
-              >
+              <Link href={latestPostUrl} className="btn-ghost">
                 最新記事へ
               </Link>
             ) : null}
             {links.map((l) => (
-              <a
-                key={l.url}
-                href={l.url}
-                className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800"
-              >
+              <a key={l.url} href={l.url} className="btn-ghost">
                 {l.label}
               </a>
             ))}

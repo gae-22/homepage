@@ -1,7 +1,7 @@
 - type: intro
   order: 0
   title: 自己紹介
-  name: あなたの名前
+  name: gae
   role: Webエンジニア
   summary: TypeScript / Next.js を中心に、開発者体験の向上に取り組んでいます。
   highlights:
@@ -12,17 +12,25 @@
     - label: GitHub
       url: https://github.com/gae-22
 
-- type: hobbies
-  order: 10
-  title: 趣味
+# - type: hobbies
+#   order: 10
+#   title: 趣味
+#   items:
+#     - ランニング
+#     - コーヒー淹れ
+#     - 写真
+#     - 読書
+
+- type: now
+  order: 20
+  title: 現在取り組んでいること
   items:
-    - ランニング
-    - コーヒー淹れ
-    - 写真
-    - 読書
+    - LCP/FIDの最適化
+    - 型安全・自動化・静的解析
+    - 技術ブログ更新
 
 - type: career
-  order: 20
+  order: 30
   title: 経歴
   timeline:
     - start: 2018
@@ -39,11 +47,3 @@
       role: Product Dev
       org: プロダクト
       description: パフォーマンス/DX
-
-- type: now
-  order: 30
-  title: 現在取り組んでいること
-  items:
-    - LCP/FIDの最適化
-    - 型安全・自動化・静的解析
-    - 技術ブログ更新

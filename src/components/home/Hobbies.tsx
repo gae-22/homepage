@@ -2,7 +2,8 @@ import { HomeHobbies } from '@/lib/home';
 
 export default function Hobbies({ section }: { section: HomeHobbies }) {
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+    <section className="card p-5">
+      <div className="card-header-line" aria-hidden />
       {section.title && (
         <h2 className="mb-3 text-2xl font-bold tracking-tight">
           {section.title}

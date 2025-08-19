@@ -49,22 +49,22 @@ export default function SearchPage() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold">Search</h1>
+      <h1 className="text-3xl font-bold tracking-tight">Search</h1>
       <input
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search posts..."
-        className="ring-primary/30 w-full rounded-md border border-slate-300 bg-white px-3 py-2 shadow-inner outline-none focus:ring dark:border-slate-700 dark:bg-slate-800"
+        className="w-full rounded-lg border border-slate-300 bg-white/80 px-3 py-2 shadow-inner outline-none ring-primary/30 focus:ring dark:border-slate-700 dark:bg-slate-800/70"
       />
       <ul className="space-y-4">
         {results.map((r) => (
           <li
             key={r.id}
-            className="rounded-xl border border-slate-200/70 bg-white/70 p-4 shadow-sm backdrop-blur-sm dark:border-slate-800/80 dark:bg-slate-900/60"
+            className="shadow-soft hover:shadow-soft-lg rounded-xl border border-slate-200/70 bg-white/70 p-4 backdrop-blur-sm dark:border-slate-800/80 dark:bg-slate-900/60"
           >
             <Link
               href={r.url}
-              className="hover:text-primary text-lg font-semibold"
+              className="text-lg font-semibold tracking-tight hover:text-primary"
             >
               {r.title}
             </Link>

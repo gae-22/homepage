@@ -2,7 +2,8 @@ import { HomeIntro } from '@/lib/home';
 
 export default function Intro({ section }: { section: HomeIntro }) {
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+    <section className="card p-5">
+      <div className="card-header-line" aria-hidden />
       {section.title && (
         <h2 className="mb-2 text-2xl font-bold tracking-tight">
           {section.title}
@@ -32,11 +33,7 @@ export default function Intro({ section }: { section: HomeIntro }) {
         {section.links && section.links.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-2 md:mt-0">
             {section.links.map((l) => (
-              <a
-                key={l.url}
-                href={l.url}
-                className="rounded-md border border-slate-200 px-3 py-1 text-sm hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"
-              >
+              <a key={l.url} href={l.url} className="btn-ghost py-1">
                 {l.label}
               </a>
             ))}

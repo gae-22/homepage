@@ -9,10 +9,10 @@ export default function Tag({
   onClick?: (tag: string) => void;
   active?: boolean;
 }) {
-  const className = `inline-flex items-center rounded-full px-2.5 py-0.5 text-xs transition-colors ${
+  const className = `inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs transition-colors ${
     active
-      ? 'bg-gradient-to-r from-primary/20 to-secondary/20 text-primary'
-      : 'bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700'
+      ? 'border-transparent bg-gradient-to-r from-primary/15 via-secondary/15 to-primary/15 text-primary'
+      : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800'
   }`;
 
   if (onClick) {
