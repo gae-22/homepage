@@ -20,10 +20,15 @@ type Frontmatter = {
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'blog');
 
 function getAllSlugs() {
-  return fs
-    .readdirSync(CONTENT_DIR)
-    .filter((f) => f.endsWith('.md'))
-    .map((f) => f.replace(/\.md$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, ''));
+  const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith('.md'));
+  return files.map((file) => {
+    const raw = fs.readFileSync(path.join(CONTENT_DIR, file), 'utf8');
+    const { data } = matter(raw);
+    const fm = data as Frontmatter;
+    return (
+      fm.slug || file.replace(/\.md$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, '')
+    );
+  });
 }
 
 export function generateStaticParams() {
