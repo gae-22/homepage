@@ -24,19 +24,6 @@ export default function HomePage() {
         <h2 className="mb-3 text-2xl font-semibold">Search</h2>
         <SearchBox />
       </section>
-      <section id="blog">
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-2xl font-semibold">Latest Posts</h2>
-          <Link href="/blog" className="text-accent">
-            All posts →
-          </Link>
-        </div>
-        <div className="grid gap-4">
-          {posts.map((post) => (
-            <PostCard key={post.slug} post={post} />
-          ))}
-        </div>
-      </section>
       <section id="tags">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-2xl font-semibold">Tags</h2>
@@ -56,6 +43,19 @@ export default function HomePage() {
             </li>
           ))}
         </ul>
+      </section>
+      <section id="blog">
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="text-2xl font-semibold">Latest Posts</h2>
+          <Link href="/blog" className="text-accent">
+            All posts →
+          </Link>
+        </div>
+        <div className="grid gap-4">
+          {posts.map((post) => (
+            <PostCard key={post.slug} post={post} />
+          ))}
+        </div>
       </section>
     </div>
   );
