@@ -5,12 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && npm run search:build",
+    "build": "npm run search:build && next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
     "search:build": "node ./scripts/build-search-index.mjs"
+  },
+  "engines": {
+    "node": "20.x"
   },
   "dependencies": {
     "date-fns": "^3.6.0",
@@ -25,7 +28,6 @@
     "remark-gfm": "^4.0.0"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^5.12.0",
     "@tailwindcss/typography": "^0.5.15",
     "@types/node": "^20.14.9",
     "@types/react": "^18.3.3",

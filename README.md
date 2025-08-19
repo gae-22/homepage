@@ -35,9 +35,11 @@ slug: "optional-slug"
 npm run search:build
 ```
 
-## Deploy (Netlify)
+## Deploy (Vercel)
 
-- Connect this repository to Netlify
+- Import the repo into Vercel
+- Framework preset: Next.js
 - Build command: `npm run build`
-- Publish directory: `.next`
-- Use the official `@netlify/plugin-nextjs` (configured in `netlify.toml`)
+- Output directory: `.next`
+- Node version: 20 (set via package.json engines)
+- Environment variables: none required by default
