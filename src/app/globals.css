@@ -25,11 +25,18 @@ body,
 }
 
 body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background:
-    linear-gradient(
-      180deg,
-      rgba(var(--brand-1), 0.05),
-      rgba(var(--brand-2), 0.04)
+    radial-gradient(
+      1200px 600px at 10% -10%,
+      rgba(var(--brand-1), 0.06),
+      transparent
+    ),
+    radial-gradient(
+      1200px 600px at 90% -10%,
+      rgba(var(--brand-2), 0.05),
+      transparent
     ),
     rgb(var(--bg));
   color: rgb(var(--fg));
@@ -55,3 +62,24 @@ body {
 }
 
 /* (Card helper removed; inline utility classes are used to avoid @apply) */
+
+/* Hide scrollbars globally while allowing scroll */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* Ensure viewport scrollbars are hidden regardless of class */
+html,
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+}

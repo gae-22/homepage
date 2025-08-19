@@ -16,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja" suppressHydrationWarning>
-      <body className="min-h-screen bg-white text-slate-900 antialiased dark:bg-slate-900 dark:text-slate-100">
+    <html lang="ja" suppressHydrationWarning className="no-scrollbar">
+      <body className="no-scrollbar min-h-screen bg-white text-slate-900 antialiased dark:bg-slate-900 dark:text-slate-100">
         <Container>
           <SiteHeader />
           <main className="py-10">{children}</main>

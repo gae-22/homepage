@@ -29,6 +29,13 @@ slug: "optional-slug"
 
 ---
 
+## Edit the top page (About/self-intro)
+
+- Update `content/home.md` (Markdown). Supported frontmatter:
+  - `title`: ページタイトル
+  - `excerpt`: 説明文（meta description に利用）
+  - 本文は通常の Markdown で書けます。
+
 ## Rebuild search
 
 ```bash
