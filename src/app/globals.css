@@ -5,12 +5,16 @@
 :root {
   --bg: 255 255 255;
   --fg: 17 24 39;
+  --brand-1: 124 58 237; /* primary violet-600 */
+  --brand-2: 6 182 212; /* secondary cyan-500 */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: 17 24 39;
     --fg: 229 231 235;
+    --brand-1: 167 139 250; /* violet-400 */
+    --brand-2: 34 211 238; /* cyan-400 */
   }
 }
 
@@ -21,10 +25,33 @@ body,
 }
 
 body {
-  background-color: rgb(var(--bg));
+  background:
+    linear-gradient(
+      180deg,
+      rgba(var(--brand-1), 0.05),
+      rgba(var(--brand-2), 0.04)
+    ),
+    rgb(var(--bg));
   color: rgb(var(--fg));
+}
+
+::selection {
+  background: rgba(var(--brand-1), 0.2);
 }
 
 .prose img {
   border-radius: 0.5rem;
 }
+
+/* Smooth focus ring */
+:where(a, button, input, textarea, select):focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--brand-1), 0.35);
+  border-color: color-mix(
+    in oklab,
+    rgb(var(--fg)) 80%,
+    rgba(var(--brand-1), 1) 20%
+  );
+}
+
+/* (Card helper removed; inline utility classes are used to avoid @apply) */

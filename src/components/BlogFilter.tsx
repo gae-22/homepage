@@ -39,7 +39,7 @@ export default function BlogFilter({
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search posts..."
-          className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 outline-none ring-accent/30 focus:ring dark:border-slate-700 dark:bg-slate-800"
+          className="ring-primary/30 w-full rounded-md border border-slate-300 bg-white px-3 py-2 shadow-inner outline-none focus:ring dark:border-slate-700 dark:bg-slate-800"
         />
       </section>
 

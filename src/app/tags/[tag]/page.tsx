@@ -27,7 +27,7 @@ export default function TagPage({ params }: { params: { tag: string } }) {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold">Tag: {params.tag}</h1>
-        <a href="/tags" className="text-accent">
+        <a href="/tags" className="text-primary hover:text-secondary">
           All tags
         </a>
       </div>

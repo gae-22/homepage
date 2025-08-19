@@ -15,7 +15,9 @@ export default function HomePage() {
   return (
     <div className="space-y-8">
       <section>
-        <h1 className="mb-2 text-3xl font-bold">Welcome</h1>
+        <h1 className="from-primary via-secondary to-primary mb-2 bg-gradient-to-r bg-clip-text text-3xl font-extrabold text-transparent">
+          Welcome
+        </h1>
         <p className="text-slate-600 dark:text-slate-300">
           Markdown-first blog with tags and search.
         </p>
@@ -27,7 +29,7 @@ export default function HomePage() {
       <section id="tags">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-2xl font-semibold">Tags</h2>
-          <Link href="/tags" className="text-accent">
+          <Link href="/tags" className="text-primary hover:text-secondary">
             All tags →
           </Link>
         </div>
@@ -47,7 +49,7 @@ export default function HomePage() {
       <section id="blog">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-2xl font-semibold">Latest Posts</h2>
-          <Link href="/blog" className="text-accent">
+          <Link href="/blog" className="text-primary hover:text-secondary">
             All posts →
           </Link>
         </div>
