@@ -14,9 +14,23 @@ export default function Intro({ section }: { section: HomeIntro }) {
           {section.name && (
             <p className="text-xl font-semibold">{section.name}</p>
           )}
-          {section.role && (
-            <p className="text-slate-600 dark:text-slate-300">{section.role}</p>
-          )}
+          {section.role &&
+            (Array.isArray(section.role) ? (
+              <div className="mt-1 flex flex-wrap gap-1.5">
+                {section.role.map((r, i) => (
+                  <span
+                    key={i}
+                    className="inline-flex items-center rounded-md border border-slate-300 bg-white/70 px-2 py-0.5 text-xs text-slate-700 dark:border-slate-700 dark:bg-slate-800/70 dark:text-slate-200"
+                  >
+                    {r}
+                  </span>
+                ))}
+              </div>
+            ) : (
+              <p className="text-slate-600 dark:text-slate-300">
+                {section.role}
+              </p>
+            ))}
           {section.summary && (
             <p className="mt-2 text-slate-700 dark:text-slate-200">
               {section.summary}

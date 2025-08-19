@@ -10,6 +10,31 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        // Unified Gothic (sans-serif) stack; display also uses sans
+        sans: [
+          'var(--font-sans)',
+          'ui-sans-serif',
+          'system-ui',
+          'Helvetica Neue',
+          'Hiragino Kaku Gothic ProN',
+          'Meiryo',
+          'Helvetica',
+          'Arial',
+          'Apple Color Emoji',
+          'Segoe UI Emoji',
+        ],
+        display: [
+          'var(--font-sans)',
+          'ui-sans-serif',
+          'system-ui',
+          'Helvetica Neue',
+          'Hiragino Kaku Gothic ProN',
+          'Meiryo',
+          'Helvetica',
+          'Arial',
+        ],
+      },
       colors: {
         // Brand palette
         primary: {
@@ -106,6 +131,25 @@ const config: Config = {
       },
       borderRadius: {
         xl: '0.85rem',
+      },
+      keyframes: {
+        aurora: {
+          '0%, 100%': { transform: 'translateY(-10%) translateX(-5%)' },
+          '50%': { transform: 'translateY(10%) translateX(5%)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-6px)' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+      },
+      animation: {
+        aurora: 'aurora 14s ease-in-out infinite',
+        float: 'float 6s ease-in-out infinite',
+        shimmer: 'shimmer 2.5s linear infinite',
       },
     },
   },

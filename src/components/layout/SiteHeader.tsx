@@ -11,13 +11,13 @@ export default function SiteHeader() {
       : pathname === href || pathname.startsWith(href + '/');
 
   return (
-    <header className="sticky top-0 z-50 -mx-4 px-4 py-5 backdrop-blur-xl supports-[backdrop-filter]:bg-white/30 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-      <nav className="card flex items-center justify-between px-4 py-3.5">
+    <header className="sticky top-0 z-50 py-2">
+      <nav className="shadow-soft flex items-center justify-between rounded-2xl border border-slate-200/60 bg-white/70 px-3 py-2.5 ring-1 ring-black/5 backdrop-blur dark:border-slate-700/50 dark:bg-slate-900/60">
         <Link
           href="/"
-          className="group flex items-center gap-3 text-lg font-semibold tracking-tight"
+          className="group flex items-center gap-2.5 text-base font-semibold tracking-tight md:text-lg"
         >
-          <span className="inline-grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-primary/90 to-secondary/90 text-white shadow-md">
+          <span className="inline-grid h-8 w-8 place-items-center rounded-xl bg-gradient-to-br from-primary/90 to-secondary/90 text-white shadow-md md:h-9 md:w-9">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -33,15 +33,15 @@ export default function SiteHeader() {
               />
             </svg>
           </span>
-          <span className="transition-colors group-hover:text-primary">
+          <span className="font-display transition-colors group-hover:text-primary">
             Home
           </span>
         </Link>
-        <div className="flex items-center gap-1.5 text-base">
+        <div className="flex items-center gap-1 text-base">
           <Link
             href="/blog"
             aria-current={isActive('/blog') ? 'page' : undefined}
-            className={`relative flex items-center gap-2 rounded-md px-3 py-2 transition-colors ${
+            className={`relative flex items-center gap-1.5 rounded-md px-2.5 py-1.5 transition ${
               isActive('/blog')
                 ? 'bg-slate-100/80 text-primary dark:bg-slate-800/60'
                 : 'text-slate-600 hover:bg-slate-100/80 hover:text-primary dark:text-slate-300 dark:hover:bg-slate-800/60'
@@ -66,12 +66,18 @@ export default function SiteHeader() {
                 />
               </svg>
             </span>
-            <span>Blog</span>
+            <span className="font-medium">Blog</span>
+            <span
+              aria-hidden
+              className={`absolute inset-x-2 bottom-1 h-0.5 origin-left scale-x-0 rounded bg-gradient-to-r from-primary to-secondary transition-transform ${
+                isActive('/blog') ? 'scale-x-100' : 'group-hover:scale-x-100'
+              }`}
+            />
           </Link>
           <Link
             href="/search"
             aria-current={isActive('/search') ? 'page' : undefined}
-            className={`relative flex items-center gap-2 rounded-md px-3 py-2 transition-colors ${
+            className={`relative flex items-center gap-1.5 rounded-md px-2.5 py-1.5 transition ${
               isActive('/search')
                 ? 'bg-slate-100/80 text-primary dark:bg-slate-800/60'
                 : 'text-slate-600 hover:bg-slate-100/80 hover:text-primary dark:text-slate-300 dark:hover:bg-slate-800/60'
@@ -96,7 +102,13 @@ export default function SiteHeader() {
                 />
               </svg>
             </span>
-            <span>Search</span>
+            <span className="font-medium">Search</span>
+            <span
+              aria-hidden
+              className={`absolute inset-x-2 bottom-1 h-0.5 origin-left scale-x-0 rounded bg-gradient-to-r from-primary to-secondary transition-transform ${
+                isActive('/search') ? 'scale-x-100' : 'group-hover:scale-x-100'
+              }`}
+            />
           </Link>
           <ThemeToggle />
         </div>

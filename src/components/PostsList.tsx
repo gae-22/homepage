@@ -11,7 +11,7 @@ export default function PostsList({ posts }: { posts: PostMeta[] }) {
     );
   }
   return (
-    <div className="grid gap-4">
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {posts.map((post) => (
         <PostCard key={post.slug} post={post} />
       ))}

@@ -67,9 +67,11 @@ export default function PostPage({ params }: { params: { slug: string } }) {
       fm.slug || file.replace(/\.md$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, '');
     if (slug === params.slug) {
       return (
-        <article className="prose prose-slate max-w-none dark:prose-invert">
+        <article className="shadow-soft prose prose-slate w-full max-w-none rounded-2xl border border-slate-200/60 bg-white/85 p-6 ring-1 ring-black/5 backdrop-blur-md dark:prose-invert dark:border-slate-700/50 dark:bg-slate-900/70 sm:p-8">
           <h1>{fm.title}</h1>
-          <p className="mt-0 text-sm text-slate-500">{formatDate(fm.date)}</p>
+          <p className="mt-0 text-sm text-slate-600 dark:text-slate-300">
+            {formatDate(fm.date)}
+          </p>
           <div className="mt-2 flex flex-wrap gap-2">
             {fm.tags?.map((t) => (
               <Tag key={t} tag={t} />

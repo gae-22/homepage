@@ -7,6 +7,7 @@
   --fg: 17 24 39;
   --brand-1: 124 58 237; /* primary violet-600 */
   --brand-2: 6 182 212; /* secondary cyan-500 */
+  --ring: 124 58 237;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,6 +39,12 @@ body {
       rgba(var(--brand-2), 0.06),
       transparent
     ),
+    conic-gradient(
+      from 120deg at 50% -10%,
+      rgba(124, 58, 237, 0.05),
+      rgba(6, 182, 212, 0.05),
+      transparent
+    ),
     linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0)),
     rgb(var(--bg));
   color: rgb(var(--fg));
@@ -54,7 +61,7 @@ body {
 /* Smooth focus ring */
 :where(a, button, input, textarea, select):focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(var(--brand-1), 0.28);
+  box-shadow: 0 0 0 3px rgba(var(--ring), 0.28);
   border-color: color-mix(
     in oklab,
     rgb(var(--fg)) 80%,
@@ -114,4 +121,26 @@ body::-webkit-scrollbar {
   .input {
     @apply w-full rounded-lg border border-slate-300 bg-white/80 px-3 py-2 shadow-inner outline-none ring-primary/30 focus:ring dark:border-slate-700 dark:bg-slate-800/70;
   }
+  .headline {
+    @apply font-display text-4xl font-extrabold tracking-tight sm:text-5xl;
+  }
+  .subtle {
+    @apply text-slate-600 dark:text-slate-300;
+  }
+  .section-title {
+    @apply font-display bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-2xl font-extrabold tracking-tight text-transparent sm:text-3xl;
+  }
+}
+
+/* Subtle grid background and aurora accents */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(100, 116, 139, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(100, 116, 139, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.aurora {
+  filter: blur(40px);
+  opacity: 0.7;
 }

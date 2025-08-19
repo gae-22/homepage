@@ -10,6 +10,7 @@ import Career from '@/components/home/Career';
 import Now from '@/components/home/Now';
 import Hero from '@/components/home/Hero';
 import type { HomeIntro } from '@/lib/home';
+import Tag from '@/components/Tag';
 
 export default function HomePage() {
   const home = loadHomeMarkdown();
@@ -24,25 +25,25 @@ export default function HomePage() {
   const latestPostUrl = posts[0]?.url;
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-8">
       {/* Hero */}
       <Hero intro={intro} latestPostUrl={latestPostUrl} />
 
       {/* Recent posts */}
-      <section id="recent" className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold tracking-tight">最新記事</h2>
-          <Link
-            href="/blog"
-            className="text-sm font-medium text-accent hover:text-primary"
-          >
-            すべて見る →
-          </Link>
-        </div>
-        <div className="grid gap-4 md:grid-cols-2">
-          {posts.map((p) => (
-            <PostCard key={p.slug} post={p} />
-          ))}
+      <section id="recent" className="space-y-2.5">
+        <h2 className="section-title">最新記事</h2>
+        <div className="card p-5">
+          <div className="card-header-line" aria-hidden />
+          <div className="grid gap-4 md:grid-cols-2">
+            {posts.map((p) => (
+              <PostCard key={p.slug} post={p} />
+            ))}
+          </div>
+          <div className="mt-4 flex justify-end">
+            <Link href="/blog" className="btn-ghost">
+              すべて見る →
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -107,18 +108,14 @@ export default function HomePage() {
       </section>
 
       {/* Tag overview */}
-      <section id="tags" className="space-y-3">
-        <h2 className="text-2xl font-bold tracking-tight">タグ</h2>
+      <section id="tags" className="space-y-2.5">
+        <h2 className="section-title">タグ</h2>
         <div className="flex flex-wrap gap-2">
           {Object.keys(tags).map((t) => (
-            <Link
-              key={t}
-              href={`/tags/${encodeURIComponent(t)}`}
-              className="rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700 transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800"
-            >
-              {t}
-              <span className="ml-1 text-slate-500">({tags[t]})</span>
-            </Link>
+            <span key={t} className="inline-flex items-center gap-1.5">
+              <Tag tag={t} />
+              <span className="text-xs text-slate-500">({tags[t]})</span>
+            </span>
           ))}
         </div>
       </section>

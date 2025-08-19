@@ -12,15 +12,6 @@
     - label: GitHub
       url: https://github.com/gae-22
 
-# - type: hobbies
-#   order: 10
-#   title: 趣味
-#   items:
-#     - ランニング
-#     - コーヒー淹れ
-#     - 写真
-#     - 読書
-
 - type: now
   order: 20
   title: 現在取り組んでいること

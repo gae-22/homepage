@@ -105,7 +105,7 @@ export type HomeSectionBase = {
 export type HomeIntro = HomeSectionBase & {
   type: 'intro';
   name?: string;
-  role?: string;
+  role?: string | string[];
   summary?: string;
   highlights?: string[];
   links?: { label: string; url: string }[];
