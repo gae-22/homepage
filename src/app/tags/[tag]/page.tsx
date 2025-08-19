@@ -4,6 +4,7 @@ import PostCard from '@/components/PostCard';
 export function generateStaticParams() {
   const tagSet = new Set<string>();
   for (const p of loadAllPosts()) {
+    if (p.draft && process.env.NODE_ENV !== 'development') continue;
     if (p.tags) p.tags.forEach((t) => tagSet.add(t));
   }
   return Array.from(tagSet).map((tag) => ({ tag }));

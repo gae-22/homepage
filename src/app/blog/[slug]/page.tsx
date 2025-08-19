@@ -21,14 +21,18 @@ const CONTENT_DIR = path.join(process.cwd(), 'content', 'blog');
 
 function getAllSlugs() {
   const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith('.md'));
-  return files.map((file) => {
+  const slugs: string[] = [];
+  for (const file of files) {
     const raw = fs.readFileSync(path.join(CONTENT_DIR, file), 'utf8');
     const { data } = matter(raw);
     const fm = data as Frontmatter;
-    return (
-      fm.slug || file.replace(/\.md$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, '')
-    );
-  });
+    const draft = !!fm.draft;
+    if (draft && process.env.NODE_ENV !== 'development') continue;
+    const slug =
+      fm.slug || file.replace(/\.md$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, '');
+    slugs.push(slug);
+  }
+  return slugs;
 }
 
 export function generateStaticParams() {
@@ -41,6 +45,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
     const raw = fs.readFileSync(path.join(CONTENT_DIR, file), 'utf8');
     const { data } = matter(raw);
     const fm = data as Frontmatter;
+    if (fm.draft && process.env.NODE_ENV !== 'development') continue;
     const slug =
       fm.slug || file.replace(/\.md$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, '');
     if (slug === params.slug) {

@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import MiniSearch from 'minisearch';
 import Link from 'next/link';
-import type { UrlObject } from 'url';
 import Tag from '@/components/Tag';
 
 type Doc = {
@@ -63,7 +62,7 @@ export default function SearchBox() {
             className="rounded-md border p-4 dark:border-slate-800"
           >
             <Link
-              href={{ pathname: r.url } as UrlObject}
+              href={r.url}
               className="text-lg font-semibold hover:text-accent"
             >
               {r.title}
