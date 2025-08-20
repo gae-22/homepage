@@ -1,5 +1,5 @@
 tools:
-  - title: Target1900 Quiz Maker
-    url: https://target1900.com
-    description: 英単語ターゲット1900の小テスト
+  - title: 英単語小テストジェネレーター
+    url: https://english-vocabulary-quiz.gae-jp.net
+    description: 英単語帳小テスト作成ツール
     tags: [English, Vocabulary, Quiz]
