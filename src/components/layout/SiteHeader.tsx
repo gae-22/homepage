@@ -74,6 +74,42 @@ export default function SiteHeader() {
               }`}
             />
           </Link>
+          <Link
+            href="/tools"
+            aria-current={isActive('/tools') ? 'page' : undefined}
+            className={`relative flex items-center gap-1.5 rounded-md px-2.5 py-1.5 transition ${
+              isActive('/tools')
+                ? 'bg-slate-100/80 text-primary dark:bg-slate-800/60'
+                : 'text-slate-600 hover:bg-slate-100/80 hover:text-primary dark:text-slate-300 dark:hover:bg-slate-800/60'
+            }`}
+          >
+            <span
+              aria-hidden
+              className="inline-flex h-5 w-5 items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                className="h-5 w-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.7"
+                  d="M12 6v12m6-6H6"
+                />
+              </svg>
+            </span>
+            <span className="font-medium">Tools</span>
+            <span
+              aria-hidden
+              className={`absolute inset-x-2 bottom-1 h-0.5 origin-left scale-x-0 rounded bg-gradient-to-r from-primary to-secondary transition-transform ${
+                isActive('/tools') ? 'scale-x-100' : 'group-hover:scale-x-100'
+              }`}
+            />
+          </Link>
           <ThemeToggle />
         </div>
       </nav>

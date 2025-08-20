@@ -61,8 +61,8 @@ export default function ThemeToggle() {
             ? 'bg-slate-100 text-primary dark:bg-slate-800'
             : 'hover:bg-slate-100 dark:hover:bg-slate-800'
         }`}
-        title="Auto (System)"
-        aria-label="Theme: Auto (System)"
+        title="System"
+        aria-label="Theme: System"
         onClick={() => handleChange('system')}
         aria-pressed={theme === 'system'}
       >
