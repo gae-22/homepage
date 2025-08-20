@@ -14,14 +14,14 @@
 	<section label="decisions">
 		<h>Framework and language</h>
 		<p>
-			Use Next.js 14+ (App Router) with TypeScript. Content: filesystem Markdown via gray-matter + react-markdown (no Contentlayer).
-			Styling: Tailwind CSS. Search: minisearch prebuilt index (client-side).
-			Deployment: Netlify-ready with @netlify/plugin-nextjs. Works locally with Node 20.
+			Use Next.js 14+ (App Router) with TypeScript. Content: filesystem Markdown via gray-matter + react-markdown + remark-gfm (no Contentlayer).
+			Styling: Tailwind CSS + @tailwindcss/typography. Search: minisearch prebuilt JSON index (client-side).
+			Deployment: Vercel-ready by default. Node.js 22.x (declared in package.json engines). Netlify also works without special plugins.
 		</p>
 		<h>Why this stack</h>
 		<p>- Next.js App Router + MDX/Markdown is a common, well-supported pattern.</p>
 		<p>- Simple filesystem parsing via gray-matter keeps deps light; types can be defined in-code.</p>
-		<p>- Client search via minisearch removes server dependency; index is generated at build.</p>
+		<p>- Client search via minisearch removes server dependency; index is generated at build time.</p>
 		<p>- Tailwind accelerates UI without heavy design systems.</p>
 	</section>
 
@@ -40,17 +40,21 @@
 		<p>- Blog posts are Markdown (.md or .mdx) with frontmatter fields: title, date, tags[], excerpt, draft?, slug? (optional).</p>
 		<p>- Implement tag listing pages and tag filters, and a search page using the prebuilt JSON index.</p>
 		<p>- Keep Japanese and English compatible: allow Unicode slugs but also provide a separate slug field for URL safety.</p>
+		<p>- Draft posts must be excluded from production builds.</p>
 		<p>- All commands must be zsh-compatible on macOS.</p>
 	</section>
 
 	<section label="directories">
 		<code>
 		/content/blog/            # Markdown posts (YYYY-MM-DD-title.md)
+		/content/home/            # Home content (index.md or index.yml/json and sections)
+		/content/tools/           # Tools list (YAML)
 		/public/                  # Static assets
 		/src/app/                 # Next.js App Router
 			├─ (site)/             # Layouts and routes
 			├─ blog/               # Blog index and routes
 			├─ tags/               # Tag index and tag pages
+			├─ tools/              # Tools page
 			└─ search/             # Search UI
 		/src/components/         # UI components
 		/src/lib/                # utils (content, search)
@@ -105,20 +109,20 @@ Language: コミットメッセージは日本語で記述する（簡潔な表�
 
 	<task id="bootstrap-project">
 		Initialize a Next.js (App Router) + TypeScript project with Tailwind CSS.
-		Use filesystem Markdown with gray-matter + react-markdown. Add minisearch for client-side search and build a JSON index at build time.
+		Use filesystem Markdown with gray-matter + react-markdown (+ remark-gfm). Add minisearch for client-side search and build a JSON index at build time.
 		Provide minimal pages: Home, Blog index, Post page, Tags index, Tag page, Search page.
 		Add sample posts with tags to demonstrate functionality.
 	</task>
 
 	<task id="content-model">
 		Define TypeScript types for posts and parse /content/blog/**/*.md with frontmatter:
-		{ title: string, date: date, tags: string[], excerpt?: string, draft?: boolean, slug?: string }
-		Generate a search index at build time with fields: title, excerpt, body, tags, url.
+		{ title: string, date: string (ISO), tags: string[], excerpt?: string, draft?: boolean, slug?: string }
+		Generate a search index at build time with fields: title, excerpt, body, tags, url, date. Exclude drafts in production.
 	</task>
 
 	<task id="search-impl">
 		Use minisearch to load a prebuilt JSON index (placed under /public/search-index.json).
-		Implement a search page with an input box, instant results, and tag chips.
+		Implement a search page with an input box, instant results, and tag chips. Store title, excerpt, url, tags, date.
 	</task>
 
 	<task id="tags-impl">
@@ -127,7 +131,7 @@ Language: コミットメッセージは日本語で記述する（簡潔な表�
 
 	<task id="tooling">
 		Add and configure ESLint, Prettier (with Tailwind plugin), EditorConfig, TypeScript strict options.
-		Add npm scripts: dev, build, start, lint, format, typecheck, search:build.
+		Add npm scripts: dev, build (runs search:build then next build), start, lint, format, typecheck, search:build (node ./scripts/build-search-index.mjs).
 		Ensure pre-commit formatting with optional lint-staged + simple Git hook (if user opts in).
 	</task>
 
@@ -139,6 +143,10 @@ Language: コミットメッセージは日本語で記述する（簡潔な表�
 
 	<task id="docs">
 		Create a concise README.md at repo root: how to run locally, write a post, add a tag, rebuild search, deploy.
+	</task>
+
+	<task id="home-content">
+		Home page content can be provided as Markdown sections under /content/home (index.md and optional numbered files), or via a structured config file: index.yml (preferred) or index.json defining sections (intro, hobbies, career, now, custom).
 	</task>
 
 	<output-format>
@@ -171,5 +179,6 @@ Language: コミットメッセージは日本語で記述する（簡潔な表�
 		<section label="notes">
 			<p>Prefer minimal dependencies. If MDX is desired later, add an MDX parser/renderer or next-mdx-remote.</p>
 			<p>Use ISO date in frontmatter. Draft posts must be excluded from production build.</p>
+			<p>Home content supports YAML (index.yml) or JSON (index.json) as well as Markdown sections.</p>
 		</section>
 </poml>

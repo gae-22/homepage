@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import type { ToolItem } from '@/lib/tools';
 
 export default function ToolCard({ tool }: { tool: ToolItem }) {
