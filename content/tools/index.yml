@@ -1,5 +1,5 @@
 tools:
-  - title: 英単語小テストジェネレーター
-    url: https://english-vocabulary-quiz.gae-jp.net
-    description: 英単語帳小テスト作成ツール
-    tags: [English, Vocabulary, Quiz]
+  - title: 小テストジェネレーター
+    url: https://quiz.gae-jp.net
+    description: 小テスト作成ツール
+    tags: [Vocabulary, Quiz, English]
