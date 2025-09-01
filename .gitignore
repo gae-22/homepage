@@ -12,6 +12,8 @@
 /.next/*
 !.next/standalone
 !.next/standalone/**
+!.next/static
+!.next/static/**
 /out/
 
 # production

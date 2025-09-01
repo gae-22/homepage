@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "npm run search:build && next build",
+    "build": "npm run search:build && next build && npm run pack:standalone",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
-    "search:build": "node ./scripts/build-search-index.mjs"
+    "search:build": "node ./scripts/build-search-index.mjs",
+    "pack:standalone": "node ./scripts/pack-standalone.mjs"
   },
   "engines": {
     "node": "22.x"
