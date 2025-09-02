@@ -1,0 +1,38 @@
+- type: intro
+  order: 0
+  title: 自己紹介
+  name: gae
+  role: ['Webエンジニア', 'バックエンド']
+  summary:
+    [
+      'Webアプリを中心に主に教育に関するサービス開発を行なっています．',
+      '大学時代には無線通信を専攻していた傍らでWeb開発に興味を持ち，独学で学び始めました．',
+    ]
+  highlights:
+    - 教育系SaaSの開発・運用
+    - 開発と塾講師経験の活用
+    - ユーザー視点を重視した機能改善
+  links:
+    - label: GitHub
+      url: https://github.com/gae-22
+
+- type: now
+  order: 20
+  title: 現在取り組んでいること
+  items:
+    - 教育系SaaSの開発・運用
+    - 開発と塾講師経験の活用
+    - 塾講師の同僚からのフィードバックを基にした機能改善
+
+- type: career
+  order: 30
+  title: 経歴
+  timeline:
+    - start: 2022
+      role: 大学生
+      org: 電気通信大学
+      description: 無線通信を専攻 / Web開発を学習 / 塾講師 / 教育系SaaS開発
+    - start: 2023
+      role: バックエンドエンジニア / アルバイト
+      org: Web系上場企業
+      description: Python / Django / GAS
