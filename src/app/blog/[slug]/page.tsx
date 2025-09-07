@@ -43,7 +43,12 @@ export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug: target } = await params;
   const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith('.md'));
   for (const file of files) {
     const raw = fs.readFileSync(path.join(CONTENT_DIR, file), 'utf8');
@@ -52,14 +57,19 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
     if (fm.draft && process.env.NODE_ENV !== 'development') continue;
     const slug =
       fm.slug || file.replace(/\.md$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, '');
-    if (slug === params.slug) {
+    if (slug === target) {
       return { title: fm.title, description: fm.excerpt };
     }
   }
   return {};
 }
 
-export default function PostPage({ params }: { params: { slug: string } }) {
+export default async function PostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug: target } = await params;
   const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith('.md'));
   for (const file of files) {
     const raw = fs.readFileSync(path.join(CONTENT_DIR, file), 'utf8');
@@ -69,7 +79,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
     if (draft && process.env.NODE_ENV !== 'development') continue;
     const slug =
       fm.slug || file.replace(/\.md$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, '');
-    if (slug === params.slug) {
+    if (slug === target) {
       return (
         <article className="prose prose-slate w-full max-w-none rounded-2xl border border-slate-200/60 bg-white/85 p-6 shadow-soft ring-1 ring-black/5 backdrop-blur-md dark:prose-invert dark:border-slate-700/50 dark:bg-slate-900/70 sm:p-8">
           <h1>{fm.title}</h1>
@@ -102,7 +112,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
                     if (typeof node === 'string') return node;
                     if (Array.isArray(node)) return node.map(textFrom).join('');
                     if (React.isValidElement(node)) {
-                      return textFrom(node.props?.children);
+                      return textFrom((node.props as any)?.children);
                     }
                     return '';
                   }

@@ -7,13 +7,14 @@ draft: false
 slug: 'first-post'
 ---
 
-# ああああああああああああ
+# はじめての投稿
 
-```python:main.py
-x = 2
-print("x = 3")
+```py:main.py
+def greet():
+  print("Hello, World!")
+
+if __name__ == "__main__":
+  greet()
 ```
-
-## あああああああああああああ
 
 https://github.com/gae-22

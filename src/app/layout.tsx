@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
 import './globals.css';
 import Container from '@/components/layout/Container';
 import SiteHeader from '@/components/layout/SiteHeader';
@@ -19,11 +20,7 @@ export const metadata: Metadata = {
   description: 'Personal site and blog',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="ja"

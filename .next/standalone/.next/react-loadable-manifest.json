@@ -852,7 +852,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/bash.js": {
-    "id": 2698,
+    "id": 8586,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/basic.js": {
@@ -900,7 +900,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/c.js": {
-    "id": 5619,
+    "id": 7813,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/cfscript.js": {
@@ -916,7 +916,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/clike.js": {
-    "id": 4146,
+    "id": 2346,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/clojure.js": {
@@ -944,7 +944,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/cpp.js": {
-    "id": 5028,
+    "id": 1197,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/crystal.js": {
@@ -952,7 +952,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/csharp.js": {
-    "id": 3494,
+    "id": 6783,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/cshtml.js": {
@@ -968,7 +968,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/css.js": {
-    "id": 8934,
+    "id": 8479,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/csv.js": {
@@ -1000,7 +1000,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/diff.js": {
-    "id": 4459,
+    "id": 495,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/django.js": {
@@ -1012,7 +1012,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/docker.js": {
-    "id": 4298,
+    "id": 2172,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/dot.js": {
@@ -1128,11 +1128,11 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/go.js": {
-    "id": 9617,
+    "id": 3346,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/graphql.js": {
-    "id": 6276,
+    "id": 9553,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/groovy.js": {
@@ -1208,7 +1208,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/ini.js": {
-    "id": 6114,
+    "id": 3478,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/io.js": {
@@ -1220,7 +1220,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/java.js": {
-    "id": 4288,
+    "id": 9952,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/javadoc.js": {
@@ -1232,7 +1232,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/javascript.js": {
-    "id": 4467,
+    "id": 9335,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/javastacktrace.js": {
@@ -1264,7 +1264,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/json.js": {
-    "id": 3408,
+    "id": 2502,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/json5.js": {
@@ -1280,7 +1280,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/jsx.js": {
-    "id": 6963,
+    "id": 2973,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/julia.js": {
@@ -1296,7 +1296,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/kotlin.js": {
-    "id": 6367,
+    "id": 2989,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/kumir.js": {
@@ -1316,7 +1316,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/less.js": {
-    "id": 5514,
+    "id": 1141,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/lilypond.js": {
@@ -1364,11 +1364,11 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/markup-templating.js": {
-    "id": 392,
+    "id": 4066,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/markup.js": {
-    "id": 4719,
+    "id": 9548,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/matlab.js": {
@@ -1500,7 +1500,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/php.js": {
-    "id": 7010,
+    "id": 5540,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/phpdoc.js": {
@@ -1564,7 +1564,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/python.js": {
-    "id": 900,
+    "id": 9078,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/q.js": {
@@ -1624,11 +1624,11 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/ruby.js": {
-    "id": 1866,
+    "id": 5640,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/rust.js": {
-    "id": 8287,
+    "id": 6642,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/sas.js": {
@@ -1648,7 +1648,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/scss.js": {
-    "id": 9096,
+    "id": 6636,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/shell-session.js": {
@@ -1696,7 +1696,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/sql.js": {
-    "id": 2782,
+    "id": 5804,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/squirrel.js": {
@@ -1712,7 +1712,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/swift.js": {
-    "id": 1173,
+    "id": 6291,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/systemd.js": {
@@ -1744,7 +1744,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/toml.js": {
-    "id": 5281,
+    "id": 612,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/tremor.js": {
@@ -1752,7 +1752,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/tsx.js": {
-    "id": 6329,
+    "id": 7503,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/tt2.js": {
@@ -1768,7 +1768,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/typescript.js": {
-    "id": 8275,
+    "id": 2751,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/typoscript.js": {
@@ -1860,7 +1860,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/yaml.js": {
-    "id": 2173,
+    "id": 1119,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/async-languages/prism.js -> refractor/lang/yang.js": {
@@ -1876,7 +1876,7 @@
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/prism-async-light.js -> refractor/core": {
-    "id": 5913,
+    "id": 2424,
     "files": []
   },
   "../node_modules/react-syntax-highlighter/dist/esm/prism-async.js -> refractor": {
